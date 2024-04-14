@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 
 class HomeItens extends Component {
     state = {
@@ -43,28 +43,46 @@ class HomeItens extends Component {
     };
     render() {
         return (
-            <View>
-                {
-                    this.state.events.map((item, index) => {
-                        return (
-                    <TouchableOpacity
-                        key={item.id}
-                        onPress={() => { console.log("Apertou no ", item.name) }}
-                        style={{ paddingBottom: 10 }}>
-                        <Text>{item.name}</Text>
-                        <Image style={{
-                            width: 200,
-                            height: 200,
-                        }} source={{ uri: item.image }} />
-                        <Text>{item.Date}</Text>
-                        <Text>{item.Time}</Text>
-                    </TouchableOpacity>
-                    )
+            <ScrollView>
+                <View>
+                    {
+                        this.state.events.map((item, index) => {
+                            return (
+                                <TouchableOpacity
+                                    key={item.id}
+                                    onPress={() => { console.log("Apertou no ", item.name) }}
+                                    style={styles.touchableOpacityContainer}>
+                                    <Text style={styles.TitleEvent}>{item.name}</Text>
+                                    <Image style={styles.ImageFrame} source={{ uri: item.image }} />
+                                    <Text>{item.Date}</Text>
+                                    <Text>{item.Time}</Text>
+                                </TouchableOpacity >
+
+                            )
                     })
-                }
-            </View >
+                    }
+                </View >
+            </ScrollView>
         )
     }
 }
+
+const styles = StyleSheet.create({
+
+    touchableOpacityContainer: {
+        alignItems: 'center',
+        paddingBottom: 10, borderBottomColor: 'black',
+        borderBottomWidth: 1,
+        marginBottom: 10,
+    },
+    TitleEvent: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    ImageFrame: {
+        width: 200,
+        height: 200
+    }
+});
 
 export default HomeItens;

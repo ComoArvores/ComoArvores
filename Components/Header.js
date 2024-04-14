@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Menu from './Menu';
 
 const Header = () => {
   return (
     <View style={styles.header}>
       <Text style={styles.headerText}>Como Árvores</Text>
       <TouchableOpacity onPress={() => console.log('Menu pressed')}>
-        <Ionicons name="menu" size={24} color="white" style={styles.menuIcon} />
+        <Menu></Menu>
       </TouchableOpacity>
     </View>
   );
@@ -24,15 +25,12 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     backgroundColor: '#000',
     alignItems: 'center',
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
   },
   headerText: {
     color: 'white',
     fontSize: 18,
-  },
-  menuIcon: {
-    alignItems: 'flex-end',
-  },
+  }
 });
 
 export default Header;
