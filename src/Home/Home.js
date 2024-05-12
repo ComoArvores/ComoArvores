@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import { View, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default class Home extends Component {
-    handleItem = (item) => {
-        this.props.navigation.navigate('Item', { item });
+const Home = () => {
+    const navigation = useNavigation(); // Obtenha o objeto de navegação
+
+    const handleItem = (item) => {
+        navigation.navigate('Item', {
+            name: item.name,
+            image: item.image,
+            Date: item.Date,
+            Time: item.Time
+        });
     };
+
+
     state = {
         events: [
             {
@@ -44,30 +53,27 @@ export default class Home extends Component {
                 Time: "13:00 as 14:00"
             }
         ]
-    }
+    };
+    return (
+        <ScrollView contentContainerStyle={styles.scrollView}>
+            {this.state.events.map((item, index) => (
+                <TouchableOpacity
+                    key={item.id}
+                    onPress={() => handleItem(item)}
+                    style={styles.touchableItem}
+                >
 
-
-    render() {
-        return (
-            <ScrollView contentContainerStyle={styles.scrollView}>
-                {this.state.events.map((item, index) => (
-                    <TouchableOpacity
-                        key={item.id}
-                        onPress={() => this.handleItem(item)} 
-                        style={styles.touchableItem}
-                    >
-                       
-                        <Text style={styles.title}>{item.name}</Text>
-                        <Image style={styles.imageFrame} source={{ uri: item.image }} />
-                        <Text style={styles.infoText}>{item.Date}</Text>
-                        <Text style={styles.infoText}>{item.Time}</Text>
-                    </TouchableOpacity>
-                ))}
-            </ScrollView>
-        );
-    }
+                    <Text style={styles.title}>{item.name}</Text>
+                    <Image style={styles.imageFrame} source={{ uri: item.image }} />
+                    <Text style={styles.infoText}>{item.Date}</Text>
+                    <Text style={styles.infoText}>{item.Time}</Text>
+                </TouchableOpacity>
+            ))}
+        </ScrollView>
+    );
 };
 
+export default Home;
 
 const styles = StyleSheet.create({
     scrollView: {

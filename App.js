@@ -35,7 +35,7 @@ export default function App() {
         <Stack.Screen
           name="Item"
           component={Item}
-          options={{ headerShown: true, headerLeft: () => Home }}
+          options={{ headerShown: false, headerLeft: () => Home }}
         />
       </Stack.Navigator>
     </NavigationContainer>
