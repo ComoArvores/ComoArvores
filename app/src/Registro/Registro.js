@@ -24,7 +24,6 @@ export default function Registro() {
             <TextInput style={style.formInput}
                 placeholder="Informe seu nome"
                 autoCapitalize="none"
-                secureTextEntry
             />
             <TextInput style={style.formInput}
                 placeholder="Informe a Senha"
