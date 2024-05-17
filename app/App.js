@@ -37,10 +37,11 @@ CREATE TABLE IF NOT EXISTS events (
       )
     })
   }
-  
+}
+
+{buscarDado}
 
 render(){
-  { buscarDado }
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
@@ -69,4 +70,4 @@ render(){
     </NavigationContainer >
   );
 }
-}
+
