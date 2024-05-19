@@ -7,7 +7,6 @@ import Home from './src/Home/Home';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
 
-
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -38,6 +37,7 @@ export default function App() {
           options={{ headerShown: false, headerLeft: () => Home }}
         />
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
   );
 }
+
