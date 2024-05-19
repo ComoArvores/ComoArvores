@@ -6,12 +6,14 @@ import Login from './src/Login/Login';
 import Home from './src/Home/Home';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
+import QuemSomosPage from './src/QuemSomos/QuemSomos';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   let header = false;
-
+  
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
@@ -34,6 +36,11 @@ export default function App() {
         <Stack.Screen
           name="Item"
           component={Item}
+          options={{ headerShown: false, headerLeft: () => Home }}
+        />
+        <Stack.Screen
+          name="QuemSomos"
+          component={QuemSomosPage}
           options={{ headerShown: false, headerLeft: () => Home }}
         />
       </Stack.Navigator>

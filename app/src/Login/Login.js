@@ -13,6 +13,10 @@ export default function Login() {
     const handleRegistro = () => {
         navigation.navigate('Registro');
     };
+    const handleSobre = () => {
+        navigation.navigate('QuemSomos');
+    };
+
 
 
     return (
@@ -34,6 +38,9 @@ export default function Login() {
             </Pressable>
             <Pressable style={style.formButton} onPress={handleRegistro}>
                 <Text style={style.textButton}>Registrar-se</Text>
+            </Pressable>
+            <Pressable style={style.formButton} onPress={handleSobre}>
+                <Text style={style.textButton}>Sobre</Text>
             </Pressable>
             <StatusBar style="auto" />
         </View>
