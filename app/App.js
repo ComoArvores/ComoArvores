@@ -3,7 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import React from 'react';
 import Login from './src/Login/Login';
-import Home from './src/Home/Home';
+import Home from './src/Home/Home'
+import HomeAdmin from './src/Home/HomeAdmin';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
 
@@ -29,7 +30,12 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerShown: true, headerLeft: () => null, title: "Eventos" }}
+          options={{ headerShown: true, headerLeft: () => null, title: " Eventos para comparecer "}}
+        />
+        <Stack.Screen
+          name="HomeAdmin"
+          component={HomeAdmin}
+          options={{ headerShown: true, headerLeft: () => null, title: " Eventos para editar "}}
         />
 
         <Stack.Screen
