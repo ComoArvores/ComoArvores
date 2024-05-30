@@ -8,23 +8,23 @@ export default function itemAdmin() {
     const data = route.params;
 
     const handlePresence = () => {
-        // Lógica para marcar presença
+       
       };
     
       const handleCertificate = () => {
-        // Lógica para gerar certificado
+        
       };
 
       const handleEvent = () => {
-        // Lógica para alterar informações do evento
+       
       };
 
       const eraseEvent = () => {
-        // Lógica para apagar o evento
+        
       };
 
       const saveEvent = () => {
-        // Lógica para favoritar o evento
+    
       };
     
       return (

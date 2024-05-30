@@ -7,6 +7,7 @@ import Home from './src/Home/Home'
 import HomeAdmin from './src/Home/HomeAdmin';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
+import itemAdmin from './itemAdmin/itemAdmin';
 
 
 const Stack = createStackNavigator();
@@ -42,6 +43,11 @@ export default function App() {
           name="Item"
           component={Item}
           options={{ headerShown: false, headerLeft: () => Home }}
+        />
+        <Stack.Screen
+          name="itemAdmin"
+          component={itemAdmin}
+          options={{ headerShown: false, headerLeft: () => Home, headerStyle:{backgroundColor :'grey'} }}
         />
       </Stack.Navigator>
     </NavigationContainer>
