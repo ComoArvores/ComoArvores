@@ -1,10 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import { StyleSheet, TextInput, Pressable, Alert, Text, View } from 'react-native'; // Removido StatusBar duplicado
+import { StyleSheet, TextInput, Pressable, Alert, Text, View, StatusBar } from 'react-native'; // Adicione StatusBar
 import React, { useState } from 'react';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+
+    const navigation = useNavigation();
 
     const handleLogin = () => {
         if (email.trim() === '') {
@@ -16,34 +18,33 @@ export default function Login() {
         }
     };
 
-
     const isValidEmail = (email) => {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email);
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     };
-
-    const navigation = useNavigation();
 
     const handleRegistro = () => {
         navigation.navigate('Registro');
     };
+
     const handleAdmin = () => {
         navigation.navigate('HomeAdmin');
+    };
+
     const handleSobre = () => {
         navigation.navigate('QuemSomos');
     };
 
-
     return (
         <View style={style.container}>
-            <Text style={style.formTitle}>Como Arvores</Text>
+            <Text style={style.formTitle}>Como Árvores</Text>
             <TextInput
                 style={style.formInput}
                 placeholder="Informe o E-mail"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCompleteType="email"
-                value={email} 
+                value={email}
                 onChangeText={text => setEmail(text)}
             />
             <TextInput
@@ -63,13 +64,13 @@ export default function Login() {
             <Pressable style={style.formButton} onPress={handleAdmin}>
                 <Text style={style.textButton}>Admin</Text>
             </Pressable>
-            <StatusBar style="auto" />
             <Pressable style={style.formButton} onPress={handleSobre}>
                 <Text style={style.textButton}>Sobre</Text>
             </Pressable>
+            <StatusBar style="auto" />
         </View>
     );
-};
+}
 
 const style = StyleSheet.create({
     container: {
@@ -78,14 +79,12 @@ const style = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-
     formTitle: {
         fontSize: 36,
         fontWeight: 'bold',
         color: 'green',
         margin: 10,
     },
-
     formInput: {
         borderColor: 'green',
         borderWidth: 1,
@@ -95,7 +94,6 @@ const style = StyleSheet.create({
         padding: 10,
         margin: 10,
     },
-
     formButton: {
         backgroundColor: 'green',
         width: '80%',
@@ -104,7 +102,6 @@ const style = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
     },
-
     textButton: {
         color: 'white',
         fontSize: 20,

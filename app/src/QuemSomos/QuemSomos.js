@@ -10,13 +10,13 @@ const QuemSomosPage = () => {
           style={styles.image}
         />
       </View>
-        <Text style={styles.title}>
+      <Text style={styles.title}>
         Quem somos?
-        </Text>
+      </Text>
       <View style={styles.textContainer}>
         <Text style={styles.text}>
-        Somos uma equipe dedicada e apaixonada por oferecer soluções criativas e inovadoras para os desafios do mundo moderno. Movidos pela curiosidade e pelo desejo de fazer a diferença, buscamos constantemente novas maneiras de inspirar, informar e impactar positivamente àqueles ao nosso redor.
-          
+          Somos uma equipe dedicada e apaixonada por oferecer soluções criativas e inovadoras para os desafios do mundo moderno. Movidos pela curiosidade e pelo desejo de fazer a diferença, buscamos constantemente novas maneiras de inspirar, informar e impactar positivamente àqueles ao nosso redor.
+
         </Text>
       </View>
     </View>
@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 10,
     margin: 20,
+    marginTop: 30,
     borderRadius: 30,
   },
   image: {
@@ -53,11 +54,11 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginVertical: 10,
-        color: '#386641',
-    }
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 10,
+    color: '#386641',
+  }
 });
 
 export default QuemSomosPage;
