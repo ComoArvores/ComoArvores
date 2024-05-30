@@ -3,9 +3,11 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import React from 'react';
 import Login from './src/Login/Login';
-import Home from './src/Home/Home';
+import Home from './src/Home/Home'
+import HomeAdmin from './src/Home/HomeAdmin';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
+import itemAdmin from './itemAdmin/itemAdmin';
 import QuemSomosPage from './src/QuemSomos/QuemSomos';
 
 const Stack = createStackNavigator();
@@ -30,7 +32,12 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerShown: true, headerLeft: () => null, title: "Eventos" }}
+          options={{ headerShown: true, headerLeft: () => null, title: " Eventos para comparecer "}}
+        />
+        <Stack.Screen
+          name="HomeAdmin"
+          component={HomeAdmin}
+          options={{ headerShown: true, headerLeft: () => null, title: " Eventos para editar "}}
         />
 
         <Stack.Screen
@@ -39,9 +46,15 @@ export default function App() {
           options={{ headerShown: false, headerLeft: () => Home }}
         />
         <Stack.Screen
+
+          name="itemAdmin"
+          component={itemAdmin}
+          options={{ headerShown: false, headerLeft: () => Home, headerStyle:{backgroundColor :'grey'} }}
+
           name="QuemSomos"
           component={QuemSomosPage}
           options={{ headerShown: false, headerLeft: () => Home }}
+
         />
       </Stack.Navigator>
     </NavigationContainer >

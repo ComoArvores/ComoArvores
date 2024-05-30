@@ -27,6 +27,8 @@ export default function Login() {
     const handleRegistro = () => {
         navigation.navigate('Registro');
     };
+    const handleAdmin = () => {
+        navigation.navigate('HomeAdmin');
     const handleSobre = () => {
         navigation.navigate('QuemSomos');
     };
@@ -58,6 +60,10 @@ export default function Login() {
             <Pressable style={style.formButton} onPress={handleRegistro}>
                 <Text style={style.textButton}>Registrar-se</Text>
             </Pressable>
+            <Pressable style={style.formButton} onPress={handleAdmin}>
+                <Text style={style.textButton}>Admin</Text>
+            </Pressable>
+            <StatusBar style="auto" />
             <Pressable style={style.formButton} onPress={handleSobre}>
                 <Text style={style.textButton}>Sobre</Text>
             </Pressable>
