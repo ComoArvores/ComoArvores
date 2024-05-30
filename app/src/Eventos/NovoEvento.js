@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, Pressable, } from 'react-native';
 
 const NovoEvento = () => {
   const [nomeEvento, setNomeEvento] = useState('');
@@ -41,7 +41,9 @@ const NovoEvento = () => {
         value={linkImagem}
         onChangeText={setLinkImagem}
       />
-      <Button title="Cadastrar" onPress={handleCadastro} />
+      <Pressable style={styles.formButton} onPress={handleCadastro}>
+        <Text style={styles.textButton}>Cadastrar</Text>
+      </Pressable>
     </View>
   );
 };
@@ -61,12 +63,25 @@ const styles = StyleSheet.create({
   input: {
     width: '100%',
     height: 40,
-    borderColor: 'gray',
+    borderColor: 'green',
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 10,
     paddingHorizontal: 10,
   },
+  formButton: {
+    backgroundColor: 'green',
+    width: '80%',
+    margin: 10,
+    padding: 10,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  textButton: {
+    color: 'white',
+    fontSize: 20,
+    fontWeight: 'bold',
+  }
 });
 
 export default NovoEvento;

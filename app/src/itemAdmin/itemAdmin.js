@@ -3,28 +3,27 @@ import { View, Text, StyleSheet, Image, Button, TouchableOpacity } from 'react-n
 import { useRoute } from '@react-navigation/native';
 
 export default function ItemAdmin() {
-
   const route = useRoute();
   const data = route.params;
 
   const handlePresence = () => {
-
+    // Function logic here
   };
 
   const handleCertificate = () => {
-
+    // Function logic here
   };
 
   const handleEvent = () => {
-
+    // Function logic here
   };
 
   const eraseEvent = () => {
-
+    // Function logic here
   };
 
   const saveEvent = () => {
-
+    // Function logic here
   };
 
   return (
@@ -46,18 +45,24 @@ export default function ItemAdmin() {
           <Button title="Marcar presença" onPress={handlePresence} />
           <Button title="Gerar certificado" onPress={handleCertificate} />
         </View>
-        <View style={styles.buttonContainer_2}>
-          <TouchableOpacity onPress={() => handleEvent('Icone editar')}>
-            <Image source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-square-lined.png' }}
-              style={{ width: 50, height: 50 }} />
+        <View style={styles.iconContainer}>
+          <TouchableOpacity onPress={handleEvent}>
+            <Image 
+              source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/7.8.0/240/iconmonstr-pencil-square-lined.png' }}
+              style={styles.icon} 
+            />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => saveEvent('Icone estrela')}>
-            <Image source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/7.3.0/240/iconmonstr-star-lined.png' }}
-              style={{ width: 50, height: 50 }} />
+          <TouchableOpacity onPress={saveEvent}>
+            <Image 
+              source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/7.3.0/240/iconmonstr-star-lined.png' }}
+              style={styles.icon} 
+            />
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => eraseEvent('Icone lixeira')}>
-            <Image source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/2017/240/iconmonstr-trash-can-28.png' }}
-              style={{ width: 50, height: 50 }} />
+          <TouchableOpacity onPress={eraseEvent}>
+            <Image 
+              source={{ uri: 'https://cdns.iconmonstr.com/wp-content/releases/preview/2017/240/iconmonstr-trash-can-28.png' }}
+              style={styles.icon} 
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -69,28 +74,28 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#333333',
-    marginTop: 50,
+    paddingTop: 50,
   },
   image: {
     width: 200,
     height: 200,
     alignSelf: 'center',
-    borderRadius: 75,
+    borderRadius: 10,
     marginBottom: 10,
   },
   content: {
     flex: 1,
-    backgroundColor: 'rgba(255, 255, 255, 1)',
+    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 20,
     margin: 20,
-    marginTop: '15%',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
+    color: '#333',
   },
   infoContainer: {
     marginBottom: 20,
@@ -112,10 +117,15 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    marginBottom: 20,
   },
-  buttonContainer_2: {
+  iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 250,
+    marginTop: 20,
+  },
+  icon: {
+    width: 50,
+    height: 50,
   },
 });
