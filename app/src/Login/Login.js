@@ -1,36 +1,58 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TextInput, Pressable } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextInput, Pressable, Alert, Text, View } from 'react-native'; // Removido StatusBar duplicado
+import React, { useState } from 'react';
 
 export default function Login() {
-    const navigation = useNavigation(); // Obtenha o objeto de navegação
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
     const handleLogin = () => {
-        navigation.navigate('Home');
+        if (email.trim() === '') {
+            Alert.alert('Erro', 'Por favor, preencha o campo de e-mail.');
+        } else if (!isValidEmail(email)) {
+            Alert.alert('Erro', 'Por favor, insira um email válido.');
+        } else {
+            navigation.navigate('Home');
+        }
     };
+
+
+    const isValidEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
+    const navigation = useNavigation();
+
     const handleRegistro = () => {
         navigation.navigate('Registro');
     };
     const handleAdmin = () => {
         navigation.navigate('HomeAdmin');
+    const handleSobre = () => {
+        navigation.navigate('QuemSomos');
     };
 
 
     return (
         <View style={style.container}>
             <Text style={style.formTitle}>Como Arvores</Text>
-            <TextInput style={style.formInput}
+            <TextInput
+                style={style.formInput}
                 placeholder="Informe o E-mail"
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCompleteType="email"
+                value={email} 
+                onChangeText={text => setEmail(text)}
             />
-            <TextInput style={style.formInput}
+            <TextInput
+                style={style.formInput}
                 placeholder="Informe a Senha"
                 autoCapitalize="none"
                 secureTextEntry
+                value={senha}
+                onChangeText={text => setSenha(text)}
             />
             <Pressable style={style.formButton} onPress={handleLogin}>
                 <Text style={style.textButton}>Entrar</Text>
@@ -42,9 +64,13 @@ export default function Login() {
                 <Text style={style.textButton}>Admin</Text>
             </Pressable>
             <StatusBar style="auto" />
+            <Pressable style={style.formButton} onPress={handleSobre}>
+                <Text style={style.textButton}>Sobre</Text>
+            </Pressable>
         </View>
     );
 };
+
 const style = StyleSheet.create({
     container: {
         flex: 1,
@@ -83,19 +109,5 @@ const style = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         fontWeight: 'bold',
-    },
-
-    subContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '80%',
-    },
-
-    subButton: {
-        padding: 10,
-    },
-
-    subTextButton: {
-        color: 'green',
     },
 });

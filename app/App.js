@@ -8,13 +8,14 @@ import HomeAdmin from './src/Home/HomeAdmin';
 import Registro from './src/Registro/Registro';
 import Item from './src/Item/Item';
 import itemAdmin from './itemAdmin/itemAdmin';
-
+import QuemSomosPage from './src/QuemSomos/QuemSomos';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   let header = false;
-
+  
+  
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
@@ -45,11 +46,18 @@ export default function App() {
           options={{ headerShown: false, headerLeft: () => Home }}
         />
         <Stack.Screen
+
           name="itemAdmin"
           component={itemAdmin}
           options={{ headerShown: false, headerLeft: () => Home, headerStyle:{backgroundColor :'grey'} }}
+
+          name="QuemSomos"
+          component={QuemSomosPage}
+          options={{ headerShown: false, headerLeft: () => Home }}
+
         />
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
   );
 }
+

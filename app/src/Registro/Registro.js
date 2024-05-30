@@ -1,15 +1,27 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TextInput, Pressable } from 'react-native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, TextInput, Pressable, Alert, Text, View } from 'react-native'; // Removido StatusBar duplicado
+import React, { useState } from 'react';
 
 export default function Registro() {
-    const navigation = useNavigation();
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
     const handleLogin = () => {
-        navigation.navigate('Home');
+        if (email.trim() === ''||senha.trim() === '') {
+            Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+        } else if (!isValidEmail(email)) {
+            Alert.alert('Erro', 'Por favor, insira um email válido.');
+        } else {
+            navigation.navigate('Home');
+        }
     };
+
+    const isValidEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    };
+
+    const navigation = useNavigation();
 
     return (
         <View style={style.container}>
@@ -19,24 +31,25 @@ export default function Registro() {
                 keyboardType="email-address"
                 autoCapitalize="none"
                 autoCompleteType="email"
+                value={email} 
+                onChangeText={text => setEmail(text)} 
             />
 
             <TextInput style={style.formInput}
                 placeholder="Informe seu nome"
                 autoCapitalize="none"
-                secureTextEntry
             />
             <TextInput style={style.formInput}
                 placeholder="Informe a Senha"
                 autoCapitalize="none"
                 secureTextEntry
+                value={senha}
+                onChangeText={text => setSenha(text)} 
             />
 
             <Pressable style={style.formButton} onPress={handleLogin}>
                 <Text style={style.textButton}>Entrar</Text>
             </Pressable>
-
-            <StatusBar style="auto" />
         </View>
     );
 };

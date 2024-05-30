@@ -8,11 +8,11 @@ export default function Item() {
     const data = route.params;
 
     const handlePresence = () => {
-        // Lógica para marcar presença
+      
       };
     
       const handleCertificate = () => {
-        // Lógica para gerar certificado
+        
       };
 
   
@@ -33,8 +33,8 @@ export default function Item() {
             </View>
           </View>
           <View style={styles.buttonContainer}>
-            <Button title="Marcar presença" onPress={handlePresence} />
-            <Button title="Gerar certificado" onPress={handleCertificate} />
+            <Button title="Marcar Presença" onPress={handlePresence} />
+            <Button title="Gerar Certificado" onPress={handleCertificate} />
           </View>
         </View>
       </View>
