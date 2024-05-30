@@ -46,16 +46,16 @@ export default function App() {
           options={{ headerShown: false, headerLeft: () => Home }}
         />
         <Stack.Screen
-
-          name="itemAdmin"
-          component={itemAdmin}
-          options={{ headerShown: false, headerLeft: () => Home, headerStyle:{backgroundColor :'grey'} }}
-
           name="QuemSomos"
           component={QuemSomosPage}
           options={{ headerShown: false, headerLeft: () => Home }}
-
         />
+        <Stack.Screen
+          name="itemAdmin"
+          component={itemAdmin}
+          options={{ headerShown: false, headerLeft: () => Home, headerStyle:{backgroundColor :'grey'} }}
+        />
+          
       </Stack.Navigator>
     </NavigationContainer >
   );
