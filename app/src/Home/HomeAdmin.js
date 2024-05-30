@@ -6,7 +6,7 @@ const HomeAdmin = () => {
     const navigation = useNavigation(); // Obtenha o objeto de navegação
 
     const handleItem = (item) => {
-        navigation.navigate('Item', {
+        navigation.navigate('itemAdmin', {
             name: item.name,
             image: item.image,
             Date: item.Date,
